@@ -1,6 +1,14 @@
+import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
+import jwtDecode from "jwt-decode";
 import React from "react";
 
-const MainPage = () => {
+const MainPage = ({ user, setUser }) => {
+  const responseGoogle = (res) => {
+    const details = jwtDecode(res.credential);
+    console.log(res);
+    console.log(details);
+    // setUser(details);
+  };
   return (
     <>
       {/* <div className="flex items-center h-screen ">
@@ -25,7 +33,15 @@ const MainPage = () => {
           <p className="mb-2 px-2 pt-2">или</p>
           <p>____________</p>
         </div>
-        <h2 className="text-[#2B59C3]">google</h2>
+        <button className="">
+          <GoogleOAuthProvider clientId="151557883450-ellj7a9fr46a4cadbi2d8tkfk0mq9jm1.apps.googleusercontent.com">
+            <GoogleLogin
+              className="google-login-button"
+              onSuccess={responseGoogle}
+              onError={responseGoogle}
+            ></GoogleLogin>
+          </GoogleOAuthProvider>
+        </button>
       </div>
     </>
   );
