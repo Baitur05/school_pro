@@ -18,7 +18,7 @@ const MainPage = () => {
           Войти
         </button>
         <ul className="mt-7 mb-14">
-          <a className="text-[#2B59C3]">Зарегистрироваться</a>
+          <button className="text-[#2B59C3]">Зарегистрироваться</button>
         </ul>
         <div className="flex justify-center">
           <p>____________</p>

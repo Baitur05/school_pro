@@ -1,13 +1,9 @@
 import React from "react";
 import "./App.css";
-import MainPage from "./components/RegisterPage/MainPage";
+import MainRoutes from "./routes/MainRoutes";
 
 const App = () => {
-  return (
-    <div>
-      <MainPage />
-    </div>
-  );
+  return <MainRoutes />;
 };
 
 export default App;
