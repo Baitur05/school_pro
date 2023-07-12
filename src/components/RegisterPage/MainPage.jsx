@@ -1,14 +1,17 @@
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import jwtDecode from "jwt-decode";
-import React from "react";
+import React, { useState } from "react";
 
-const MainPage = ({ user, setUser }) => {
+const MainPage = () => {
+  const [user, setUser] = useState();
+
   const responseGoogle = (res) => {
     const details = jwtDecode(res.credential);
     console.log(res);
     console.log(details);
-    // setUser(details);
+    setUser(details);
   };
+
   return (
     <>
       {/* <div className="flex items-center h-screen ">
@@ -19,6 +22,11 @@ const MainPage = ({ user, setUser }) => {
           <h1 className="mx-auto text-6xl">
             maker
             <span className="bg-white text-black px-1">s</span>
+            {user && (
+              <>
+                <i className="fa fa-envelope"></i> <label>{user.email}</label>
+              </>
+            )}
           </h1>
         </div>
 
