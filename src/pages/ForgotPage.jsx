@@ -1,10 +1,10 @@
-import * as React from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button, Container } from "@mui/material";
-import "./style.css";
 import { Link } from "react-router-dom";
-export default function BasicTextFields() {
+
+function ForgotPage() {
   return (
     <Container maxWidth="xs">
       <div
@@ -29,24 +29,11 @@ export default function BasicTextFields() {
         >
           <TextField
             margin="normal"
-            className="blue-hover"
             label="Email "
             name="email"
             autoComplete="email"
             autoFocus
-            style={{
-              background: "white",
-              borderRadius: "7px",
-              width: "85%",
-            }}
-          />
-
-          <TextField
-            margin="normal"
             className="blue-hover"
-            name="password"
-            label="Пароль"
-            autoComplete="current-password"
             style={{
               background: "white",
               borderRadius: "7px",
@@ -57,14 +44,7 @@ export default function BasicTextFields() {
           <div>
             <Button
               component={Link}
-              to="/forgot"
-              className="text-[#2B59C3]"
-              style={{ marginLeft: "55%", width: "100%" }}
-            >
-              Забыл пароль
-            </Button>
-
-            <Button
+              to="/activation"
               style={{
                 background: "white",
                 color: "blue",
@@ -75,10 +55,15 @@ export default function BasicTextFields() {
                 height: "40px",
               }}
               variant="outline"
-              className="blue-hover"
             >
-              Войти
+              Сбросить пароль
             </Button>
+            <button
+              className="text-[#2B59C3]"
+              style={{ marginLeft: "55%", width: "100%" }}
+            >
+              Вспомнил пароль
+            </button>
           </div>
         </Box>
         <ul className="mt-7 mb-18"></ul>
@@ -107,14 +92,16 @@ export default function BasicTextFields() {
           >
             Войти через Google
           </button>
-          <Button
+          <button
             className="text-[#2B59C3]"
             style={{ marginLeft: "28%", width: "85%" }}
           >
             Зарегистрироваться
-          </Button>
+          </button>
         </div>
       </div>
     </Container>
   );
 }
+
+export default ForgotPage;

@@ -1,0 +1,56 @@
+/* .textFild {
+  color: blue;
+} */
+
+.mail {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+
+  width: 319px;
+  height: 81px;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 30px;
+  margin-left: 38%;
+  margin-top: 5%;
+  /* font-family: Manrope; */
+}
+
+.alert {
+  border-radius: 5px;
+  background: rgba(190, 228, 203, 0.2);
+  width: 35%;
+  height: 100%;
+  margin-top: 3%;
+  margin-left: 33%;
+}
+
+.css-1fuz9qr-MuiPaper-root-MuiAlert-root {
+  background: rgba(190, 228, 203, 0.2) !important;
+  color: #14ae5c !important;
+}
+
+.css-1vooibu-MuiSvgIcon-root {
+  color: #14ae5c;
+}
+
+.blue-hover:hover {
+  background-color: blue !important;
+}
+
+.googleP {
+  display: flex;
+  width: 278px;
+  height: 167px;
+  flex-direction: column;
+  text-align: justify;
+  color: #767e8c;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 21.86px;
+  margin-left: 39%;
+  margin-top: 2%;
+}

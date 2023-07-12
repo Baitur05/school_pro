@@ -1,16 +1,13 @@
-import * as React from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button, Container } from "@mui/material";
-import "./style.css";
 import { Link } from "react-router-dom";
-export default function BasicTextFields() {
+
+function PasswordPage() {
   return (
     <Container maxWidth="xs">
-      <div
-        // style={{ marginTop: "80px" }}
-        className="text-center mt-[8%] text-white text-xl"
-      >
+      <div className="text-center mt-[8%] text-white text-xl">
         <div>
           <h1 className="mx-auto text-6xl">
             maker
@@ -29,24 +26,23 @@ export default function BasicTextFields() {
         >
           <TextField
             margin="normal"
-            className="blue-hover"
-            label="Email "
-            name="email"
-            autoComplete="email"
+            label="Пароль"
+            name="password"
+            autoComplete="password"
             autoFocus
+            className="blue-hover"
             style={{
               background: "white",
               borderRadius: "7px",
               width: "85%",
             }}
           />
-
           <TextField
             margin="normal"
-            className="blue-hover"
             name="password"
-            label="Пароль"
+            label="Повторите пароль"
             autoComplete="current-password"
+            className="blue-hover"
             style={{
               background: "white",
               borderRadius: "7px",
@@ -75,7 +71,8 @@ export default function BasicTextFields() {
                 height: "40px",
               }}
               variant="outline"
-              className="blue-hover"
+              component={Link}
+              to="/authPasswordPage"
             >
               Войти
             </Button>
@@ -118,3 +115,5 @@ export default function BasicTextFields() {
     </Container>
   );
 }
+
+export default PasswordPage;

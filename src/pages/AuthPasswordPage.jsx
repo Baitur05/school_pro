@@ -1,16 +1,13 @@
-import * as React from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button, Container } from "@mui/material";
-import "./style.css";
 import { Link } from "react-router-dom";
-export default function BasicTextFields() {
+
+function AuthPasswordPage() {
   return (
     <Container maxWidth="xs">
-      <div
-        // style={{ marginTop: "80px" }}
-        className="text-center mt-[8%] text-white text-xl"
-      >
+      <div className="text-center mt-[8%] text-white text-xl">
         <div>
           <h1 className="mx-auto text-6xl">
             maker
@@ -29,10 +26,10 @@ export default function BasicTextFields() {
         >
           <TextField
             margin="normal"
-            className="blue-hover"
-            label="Email "
+            label="email"
             name="email"
             autoComplete="email"
+            className="blue-hover"
             autoFocus
             style={{
               background: "white",
@@ -40,13 +37,24 @@ export default function BasicTextFields() {
               width: "85%",
             }}
           />
-
           <TextField
             margin="normal"
-            className="blue-hover"
             name="password"
-            label="Пароль"
+            label="пароль"
             autoComplete="current-password"
+            className="blue-hover"
+            style={{
+              background: "white",
+              borderRadius: "7px",
+              width: "85%",
+            }}
+          />
+          <TextField
+            margin="normal"
+            name="password"
+            label="Повторите пароль"
+            autoComplete="current-password"
+            className="blue-hover"
             style={{
               background: "white",
               borderRadius: "7px",
@@ -75,9 +83,10 @@ export default function BasicTextFields() {
                 height: "40px",
               }}
               variant="outline"
-              className="blue-hover"
+              component={Link}
+              to="/authMainPage"
             >
-              Войти
+              Продолжить
             </Button>
           </div>
         </Box>
@@ -118,3 +127,5 @@ export default function BasicTextFields() {
     </Container>
   );
 }
+
+export default AuthPasswordPage;
