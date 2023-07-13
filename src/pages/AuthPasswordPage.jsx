@@ -1,10 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button, Container } from "@mui/material";
 import { Link } from "react-router-dom";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 function AuthPasswordPage() {
+  const [inputTextOne, setInputTextOne] = useState("");
+  const handleInputChange = (event) => {
+    setInputTextOne(event.target.value);
+  };
+
+  const [inputTextTwo, setInputTextTwo] = useState("");
+  const handleInputTwoChange = (event) => {
+    setInputTextTwo(event.target.value);
+  };
+
+  const [inputTextThree, setInoutTextThree] = useState("");
+  const handleInputThreeChange = (event) => {
+    setInoutTextThree(event.target.value);
+  };
+
+  const [buttonHovered, setButtonHovered] = useState(false);
+  const handleMouseEnter = () => {
+    setButtonHovered(true);
+  };
+  const handleMouseLeave = () => {
+    setButtonHovered(false);
+  };
+
+  const [googleButtonHovered, setGoogleButtonHovered] = useState(false);
+  const handleGoogleMouseEnter = () => {
+    setGoogleButtonHovered(true);
+  };
+  const handleGoogleMouseLeave = () => {
+    setGoogleButtonHovered(false);
+  };
   return (
     <Container maxWidth="xs">
       <div className="text-center mt-[8%] text-white text-xl">
@@ -22,17 +53,20 @@ function AuthPasswordPage() {
           }}
           noValidate
           autoComplete="off"
-          style={{ marginTop: "70px" }}
+          style={{ marginTop: "4%" }}
         >
           <TextField
             margin="normal"
             label="email"
-            name="email"
+            name="Email"
             autoComplete="email"
             className="blue-hover"
+            value={inputTextOne}
+            onChange={handleInputChange}
             autoFocus
             style={{
-              background: "white",
+              background: inputTextOne ? "blue" : "white",
+              color: inputTextOne ? "white" : "black",
               borderRadius: "7px",
               width: "85%",
             }}
@@ -40,11 +74,14 @@ function AuthPasswordPage() {
           <TextField
             margin="normal"
             name="password"
-            label="пароль"
+            label="Пароль"
             autoComplete="current-password"
             className="blue-hover"
+            value={inputTextTwo}
+            onChange={handleInputTwoChange}
             style={{
-              background: "white",
+              background: inputTextTwo ? "blue" : "white",
+              color: inputTextTwo ? "white" : "black",
               borderRadius: "7px",
               width: "85%",
             }}
@@ -55,8 +92,11 @@ function AuthPasswordPage() {
             label="Повторите пароль"
             autoComplete="current-password"
             className="blue-hover"
+            value={inputTextThree}
+            onChange={handleInputThreeChange}
             style={{
-              background: "white",
+              background: inputTextThree ? "blue" : "white",
+              color: inputTextThree ? "white" : "black",
               borderRadius: "7px",
               width: "85%",
             }}
@@ -64,29 +104,23 @@ function AuthPasswordPage() {
 
           <div>
             <Button
+              variant="outline"
               component={Link}
-              to="/forgot"
-              className="text-[#2B59C3]"
-              style={{ marginLeft: "55%", width: "100%" }}
-            >
-              Забыл пароль
-            </Button>
-
-            <Button
+              to="/authMainPage"
+              className={buttonHovered ? "blue-button" : ""}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
               style={{
-                background: "white",
-                color: "blue",
+                background: buttonHovered ? "blue" : "white",
+                color: buttonHovered ? "white" : "blue",
                 width: "65%",
                 marginLeft: "37%",
                 marginTop: "13%",
                 borderRadius: "5px",
                 height: "40px",
               }}
-              variant="outline"
-              component={Link}
-              to="/authMainPage"
             >
-              Продолжить
+              Продолжить <ArrowForwardIosIcon className="iconAuthPassword" />
             </Button>
           </div>
         </Box>
@@ -103,11 +137,16 @@ function AuthPasswordPage() {
             justifyContent: "center",
           }}
         >
-          <button
+          <Button
             variant="outline"
+            component={Link}
+            to="/googlePage"
+            className={googleButtonHovered ? "blue-button" : ""}
+            onMouseEnter={handleGoogleMouseEnter}
+            onMouseLeave={handleGoogleMouseLeave}
             style={{
-              background: "white",
-              color: "blue",
+              background: googleButtonHovered ? "blue" : "white",
+              color: googleButtonHovered ? "white" : "blue",
               borderRadius: "5px",
               width: "85%",
               height: "40px",
@@ -115,13 +154,17 @@ function AuthPasswordPage() {
             }}
           >
             Войти через Google
-          </button>
-          <Button
-            className="text-[#2B59C3]"
-            style={{ marginLeft: "28%", width: "85%" }}
-          >
-            Зарегистрироваться
           </Button>
+          <Box className="authPasswordBox">
+            <p className="authPasswordP">У меня есть акаунт</p>
+            <Button
+              className="buttonGo"
+              component={Link}
+              to="/authPasswordPage"
+            >
+              Войти
+            </Button>
+          </Box>
         </div>
       </div>
     </Container>

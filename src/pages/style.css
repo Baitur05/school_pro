@@ -40,7 +40,84 @@
   background-color: blue !important;
 }
 
+.blue-hover {
+  border-radius: 7px !important;
+  width: 85% !important;
+}
+
+.blue-button {
+  background-color: blue !important;
+  color: white !important;
+  border-radius: 5px !important;
+}
+
+.blue-background {
+  background: blue;
+}
+
+.blue-hover:hover {
+  background: blue;
+  color: white;
+}
+
+.buttonAll {
+  width: 45% !important;
+  margin-left: 48% !important;
+}
+
+.buttonAllPassword {
+  width: 49% !important;
+  margin-left: 88% !important;
+}
+
+/*! AuthPage */
+.divAuth {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+/*! ForgotPage  */
+
+.buttonFotgot {
+  margin-left: 75% !important;
+  width: 61% !important;
+}
+
+/* !AuthPasswordPage */
+.authPasswordBox {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  width: 70%;
+  margin-left: 10%;
+}
+.authPasswordP {
+  color: #1976d2 !important;
+  font-size: 17px;
+}
+
+.buttonGo {
+  width: 20% !important;
+  font-size: 17px !important;
+  padding: 2px 2px !important;
+  margin-left: 2% !important;
+  color: white !important;
+}
+
+.iconAuthPassword {
+  height: 17px !important;
+  margin-bottom: 2% !important;
+}
+
+/* ! GooglePage */
+
 .googleP {
+  color: white !important;
+  margin-left: 45% !important;
+}
+
+.googleText {
   display: flex;
   width: 278px;
   height: 167px;
@@ -51,6 +128,28 @@
   font-style: normal;
   font-weight: 600;
   line-height: 21.86px;
-  margin-left: 39%;
+  margin-left: 16% !important;
   margin-top: 2%;
+}
+
+.googleTextP {
+  color: #2b59c3 !important;
+}
+
+.googleBox {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  flex-direction: row !important;
+  margin-left: 10%;
+}
+
+.googleGoogle {
+  color: white !important;
+  margin-top: 25% !important;
+  margin-left: 1% !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  height: 10% !important;
+  width: 70% !important;
 }

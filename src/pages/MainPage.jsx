@@ -1,22 +1,28 @@
 // import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 // import jwtDecode from "jwt-decode";
 import { Button } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const MainPage = () => {
-  //   const { user, logout, isAdmin } = useAuthContext();
-  const responseGoogle = (res) => {
-    // const details = jwtDecode(res.credential);
-    console.log(res);
-    // console.log(details);
-    // setUser(details);
+  const [buttonHovered, setButtonHovered] = useState(false);
+  const handleMouseEnter = () => {
+    setButtonHovered(true);
   };
+  const handleMouseLeave = () => {
+    setButtonHovered(false);
+  };
+
+  const [googleButtonHovered, setGoogleButtonHovered] = useState(false);
+  const handleGoogleMouseEnter = () => {
+    setGoogleButtonHovered(true);
+  };
+  const handleGoogleMouseLeave = () => {
+    setGoogleButtonHovered(false);
+  };
+
   return (
     <>
-      {/* <div className="flex items-center h-screen ">
-        <h1 className="text-white mx-auto text-4xl">makers</h1>
-      </div> */}
       <div className="text-center mt-[8%] text-white text-xl">
         <div>
           <h1 className="mx-auto text-6xl">
@@ -29,22 +35,25 @@ const MainPage = () => {
           component={Link}
           to="/auth"
           variant="outline"
-          className="blue-hover"
+          className={buttonHovered ? "blue-button" : ""}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           style={{
-            background: "white",
-            color: "blue",
+            background: buttonHovered ? "blue" : "white",
+            color: buttonHovered ? "white" : "blue",
             width: "15%",
-            // marginLeft: "37%",
             marginTop: "10%",
-            borderRadius: "5px",
+
             height: "40px",
           }}
-          //   className="text-[#2B59C3] bg-white px-16  pb-1.5 pt-1 rounded-lg mt-[14%]"
         >
           Войти
         </Button>
+
         <ul className="mt-7 mb-14">
-          <Button className="text-[#2B59C3]">Зарегистрироваться</Button>
+          <Button component={Link} to="/authPasswordPage">
+            Зарегистрироваться
+          </Button>
         </ul>
         <div className="flex justify-center">
           <p>____________</p>
@@ -56,10 +65,13 @@ const MainPage = () => {
           variant="outline"
           component={Link}
           to="/goolePage"
+          className={googleButtonHovered ? "blue-button" : ""}
+          onMouseEnter={handleGoogleMouseEnter}
+          onMouseLeave={handleGoogleMouseLeave}
           style={{
-            background: "white",
-            color: "blue",
-            borderRadius: "5px",
+            background: googleButtonHovered ? "blue" : "white",
+            color: googleButtonHovered ? "white" : "blue",
+
             width: "20%",
             height: "40px",
           }}

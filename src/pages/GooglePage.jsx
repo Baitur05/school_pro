@@ -1,10 +1,24 @@
-import { Box, Button, TextField } from "@mui/material";
-import React from "react";
+import { Box, Button, Container, TextField } from "@mui/material";
+import React, { useState } from "react";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 function GooglePage() {
+  const [inputTextOne, setInputTextOne] = useState("");
+  const handleInputChange = (event) => {
+    setInputTextOne(event.target.value);
+  };
+
+  const [buttonHovered, setButtonHovered] = useState(false);
+  const handleMouseEnter = () => {
+    setButtonHovered(true);
+  };
+  const handleMouseLeave = () => {
+    setButtonHovered(false);
+  };
+
   return (
-    <>
-      <div
+    <Container maxWidth="xs">
+      <Box
         style={{ marginTop: "5%" }}
         className="text-center mt-[8%] text-white text-xl"
       >
@@ -14,9 +28,9 @@ function GooglePage() {
             <span className="bg-white text-black px-1">s</span>
           </h1>
         </div>
-      </div>
+      </Box>
       <Box
-        className="textFild"
+        // className="textFild"
         component="form"
         sx={{
           "& > :not(style)": { m: 1, width: "25ch" },
@@ -25,9 +39,7 @@ function GooglePage() {
         autoComplete="off"
         style={{ marginTop: "70px" }}
       >
-        <p style={{ color: "white", marginLeft: "48%", marginTop: "-3%" }}>
-          Вход
-        </p>
+        <p className="googleP">Вход</p>
         <TextField
           margin="normal"
           className="blue-hover"
@@ -35,41 +47,48 @@ function GooglePage() {
           name="email"
           autoComplete="email"
           autoFocus
+          value={inputTextOne}
+          onChange={handleInputChange}
           style={{
-            background: "white",
+            background: inputTextOne ? "blue" : "white",
+            color: inputTextOne ? "white" : "black",
             borderRadius: "7px",
-            width: "30%",
-            marginLeft: "35%",
+            width: "85%",
+            marginLeft: "8%",
           }}
         />
       </Box>
 
-      <p className="googleP">
+      <p className="googleText">
         Приложению “Makers” будет предоставлени доступ к вашим данным: имени,
         адресу электронной почты, языковым настройкам и фото профиля. Прежде чем
         начать работу с приложением “Makers”, вы можете ознакомиться с его
-        <p style={{ color: "blue" }}>
+        <p className="googleTextP">
           политикой конфиденциальности и условиям использования.
         </p>
       </p>
 
-      <Box
-        style={{
-          borderRadius: "7px",
-          width: "30%",
-          marginTop: "5%",
-          marginLeft: "38%",
-        }}
-      >
-        <Button>Создать аккаунт</Button>
+      <Box className="googleBox">
+        <Button className="googleGoogle">Создать аккаунт</Button>
         <Button
           variant="outline"
-          style={{ background: "white", color: "blue" }}
+          className={buttonHovered ? "blue-button" : ""}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          style={{
+            background: buttonHovered ? "blue" : "white",
+            color: buttonHovered ? "white" : "blue",
+            width: "85%",
+            height: "46px",
+            borderRadius: "5px",
+            marginTop: "25%",
+            marginLeft: "25%",
+          }}
         >
-          Продолжить
+          Продолжить <ArrowForwardIosIcon className="iconAuthPassword" />
         </Button>
       </Box>
-    </>
+    </Container>
   );
 }
 
